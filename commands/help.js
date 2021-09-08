@@ -11,7 +11,7 @@ const ajuda = new Discord.MessageEmbed()
 .setTitle("Sistema de Ajuda")
 .setThumbnail(message.author.displayAvatarURL({ dynamic: true, format: "png", size: 1024}))
 .setDescription("Reaja de acordo com o que esta procurando!\n🛎 - Informações\n\n🛠 - Administrativos\n\n🎪 - Diversão\n\n🔮 - Eventos\n\n🎵 - Musicas")
-.addFields({ name: '***Quer me conhecer melhor?***', value: "[Clique Aqui](https://top.gg/bot/735241944757829792)", incline: true})
+.addFields({ name: '***Quer me adicionar no seu servidor?***', value: "[Clique Aqui](https://discord.com/api/oauth2/authorize?client_id=735241944757829792&permissions=8&scope=bot)", incline: true})
 .setTimestamp()
 .setFooter(`Comando solicitado por ${message.member.displayName}`, message.author.displayAvatarURL({Size: 32}))
 
