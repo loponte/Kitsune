@@ -1,7 +1,7 @@
 # Projeto Kitsune - Discord.js
 
 ## ❗ Licença
-Este projeto usa a licenciatura MIT, para saber mais [clique aqui](https://github.com/loponte/Kitsune/blob/main/LICENSE)
+Este projeto usa a licença MIT, para saber mais [clique aqui](https://github.com/loponte/Kitsune/blob/main/LICENSE)
 
 ## ☕ Introdução
 Este projeto foi feito somente pelo Loponte, no intuito de aprender sobre programação e melhorar minha percepção social. No inicio pensei em deixar o projeto privado, mas a partir do momento em que consegui a verificação do bot no Discord, decidi então deixar público, para assim ajudar novos programadores.
