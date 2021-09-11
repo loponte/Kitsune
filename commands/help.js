@@ -51,7 +51,7 @@ infos.on('collect', r2 => {
 adm.on('collect', r2 => {
 
   ajuda.setTitle("**Comandos Administrativos!**")
-  ajuda.setDescription("***k!mute <@user> <tempo> <motivo>*** **-** *Para mutar um membro!* :x:\n\n***k!unmute <@user>*** **-** *Para desmutar um membro!* :x:\n\n***k!ban <@user> <motivo>*** **-** *Para banir um membro!* :x:\n\n***k!unban <@id>*** **-** *Para desbanir um membro!*\n\n***k!kick <@user> <motivo>*** **-** *Para expulsar um membro!*\n\n***k!clear*** **-** *Para excluir mensagens!*\n\n***k!lock*** **-** *Para lockar um chat!*\n\n***k!lockdown*** **-** *Para lockar todos os chats!*")
+  ajuda.setDescription("***k!mute <@user> <tempo> <motivo>*** **-** *Para mutar um membro!*\n\n***k!unmute <@user>*** **-** *Para desmutar um membro!*\n\n***k!ban <@user> <motivo>*** **-** *Para banir um membro!*\n\n***k!unban <@id>*** **-** *Para desbanir um membro!*\n\n***k!kick <@user> <motivo>*** **-** *Para expulsar um membro!*\n\n***k!clear*** **-** *Para excluir mensagens!*\n\n***k!lock*** **-** *Para lockar um chat!*\n\n***k!lockdown*** **-** *Para lockar todos os chats!*")
   msg.edit(ajuda)
 })
 
@@ -64,14 +64,14 @@ fun.on('collect', r2 => {
 event.on('collect', r2 => {
 
   ajuda.setTitle("**Sistema de Evento!**")
-  ajuda.setDescription("***k!addbemvindo <#id chat de boas-vindas>*** **-** *Para adicionar o chat que irá receber as pessoas* :inbox_tray:\n\n***k!removerbemvindo*** **-** *Para remover mensagem de boas-vindas, caso queira adicionar outra mensagem, ou, simplesmente tirar!* :inbox_tray:\n\n*Kitsune também tem um sistema de anti-convite para que ninguém consiga divulgar no seu servidor!* (temporariamente indisponivel!) :wink:")
+  ajuda.setDescription("***k!addbemvindo <#id chat de boas-vindas>*** **-** *Para adicionar o chat que irá receber as pessoas*\n\n***k!removerbemvindo*** **-** *Para remover mensagem de boas-vindas, caso queira adicionar outra mensagem, ou, simplesmente tirar!*\n\n*Kitsune também tem um sistema de anti-convite para que ninguém consiga divulgar no seu servidor!* (temporariamente indisponivel!)")
   msg.edit(ajuda)
       })
 
 music.on('collect', r2 => {
 
   ajuda.setTitle("**Sistema de musica!**")
-  ajuda.setDescription("***k!join, k!play, k!resume, k!lyrics, k!volume, k!skip, k!stop, k!pause, k!autoplay, k!queue, k!repeat*** **-** *para saber tudo sobre o sistema de musica!* 🎵\n\n***k!filter*** **-** *para adicionar um filtro. Exemplo: k!filter 3d* 🎵\n\n***Filtros existentes:***\n*3d, bassboost, echo, karaoke, nightcore, vaporwave, flanger, gate, haas, reverse, surround, phaser, tremolo, earwax.* 🎵")
+  ajuda.setDescription("***k!join, k!play, k!resume, k!lyrics, k!volume, k!skip, k!stop, k!pause, k!autoplay, k!queue, k!repeat*** **-** *para saber tudo sobre o sistema de musica!*\n\n***k!filter*** **-** *para adicionar um filtro. Exemplo: k!filter 3d*\n\n***Filtros existentes:***\n*3d, bassboost, echo, karaoke, nightcore, vaporwave, flanger, gate, haas, reverse, surround, phaser, tremolo, earwax.*")
   msg.edit(ajuda)
       })
     })
