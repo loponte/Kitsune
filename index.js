@@ -4,7 +4,8 @@ const { MessageEmbed } = require('discord.js')
 const client = new Discord.Client()
 const fs = require("fs")
 const config = require("./config.json")
-const db = require("quick.db");
+const db = require("quick.db")
+const Canvas = require('canvas')
 
 let embed = new MessageEmbed()
 
@@ -145,27 +146,14 @@ client.distube
 
 //define a msg de boas vindas
 
-const Canvas = require('canvas')
-
-var welcomeCanvas = {};
-welcomeCanvas.create = Canvas.createCanvas(1024, 500)
-welcomeCanvas.context = welcomeCanvas.create.getContext('2d')
-welcomeCanvas.context.font = '72px sans-serif';
-welcomeCanvas.context.fillStyle = '#ffffff';
-
-Canvas.loadImage("./img/bg.jpg").then(async (img) => {
-  welcomeCanvas.context.drawImage(img, 0, 0, 1024, 500)
-  welcomeCanvas.context.fillText("Bem-vindo(a)", 360, 360);
-  welcomeCanvas.context.beginPath();
-  welcomeCanvas.context.arc(512, 166, 120, 0, Math.PI * 2, true);
-  welcomeCanvas.context.stroke()
-  welcomeCanvas.context.fill()
-})
-
 client.on("guildMemberAdd", async member => {
 
   let chx = db.get(`welchannel_${member.guild.id}`);
   let ch = client.channels.cache.get(chx);
+  var welcomeCanvas = {};
+  let canvas = welcomeCanvas;
+  let membro = member.user.tag;
+  let server = member.guild.memberCount;
 
   if (chx === null) {
     return;
@@ -175,13 +163,24 @@ client.on("guildMemberAdd", async member => {
     return;
   }
 
-  const welcomechannel = client.channels.cache.get(ch)
-  let canvas = welcomeCanvas;
-  canvas.context.font = '42px sans-serif',
-    canvas.context.textAlign = 'center';
-  canvas.context.fillText(member.user.tag.toUpperCase(), 512, 410)
-  canvas.context.font = '32px sans serif'
-  canvas.context.fillText(`Você é o ${member.guild.memberCount}º`, 512, 455)
+  welcomeCanvas.create = Canvas.createCanvas(1024, 500)
+  welcomeCanvas.context = welcomeCanvas.create.getContext('2d')
+  welcomeCanvas.context.font = '72px Dudu Calligraphy';
+  welcomeCanvas.context.fillStyle = '#ffffff';
+
+  const background = await Canvas.loadImage(`./img/bg.jpg`);
+  welcomeCanvas.context.drawImage(background, 0, 0, 1024, 500)
+  welcomeCanvas.context.fillText("Bem-vindo(a)", 315, 360);
+  welcomeCanvas.context.beginPath();
+  welcomeCanvas.context.arc(512, 166, 120, 0, Math.PI * 2, true);
+  welcomeCanvas.context.stroke()
+  welcomeCanvas.context.fill()
+
+  canvas.context.font = '42px Dudu Calligraphy',
+  canvas.context.textAlign = 'center';
+  canvas.context.fillText(membro, 512, 410)
+  canvas.context.font = '32px Dudu Calligraphy'
+  canvas.context.fillText(`Você é o ${server} membro`, 512, 455)
   canvas.context.beginPath()
   canvas.context.arc(512, 166, 119, 0, Math.PI * 2, true)
   canvas.context.closePath()
@@ -190,11 +189,11 @@ client.on("guildMemberAdd", async member => {
     .then(img => {
       canvas.context.drawImage(img, 393, 47, 238, 238);
     })
-  let atta = new Discord.MessageAttachment(canvas.create.toBuffer(), `welcome-${member.id}.png`)
+  const atta = new Discord.MessageAttachment(canvas.create.toBuffer(), `welcome-${member.id}.png`)
   try {
-    welcomechannel.send(`:wave: Olá ${member}, seja bem-vindo(a) ao ${member.guild.name}!`, atta)
-  } catch { error } {
-    console.log(error)
+    ch.send(`☕ Olá ${member}, você está no ${member.guild.name}!`, atta)
+  } catch (e) {
+    console.error(e)
   }
 });
 

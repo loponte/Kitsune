@@ -64,7 +64,7 @@ fun.on('collect', r2 => {
 event.on('collect', r2 => {
 
   ajuda.setTitle("**Sistema de Evento!**")
-  ajuda.setDescription("***k!addbemvindo <#id chat de boas-vindas> mensagem que deseja*** **-** *Para adicionar o chat que irá receber as pessoas e a mensagem de boas-vindas!* :inbox_tray:\n\n***k!removerbemvindo*** **-** *Para remover mensagem de boas-vindas, caso queira adicionar outra mensagem, ou, simplesmente tirar!* :inbox_tray:\n\n*Kitsune também tem um sistema de anti-convite para que ninguém consiga divulgar no seu servidor!* (temporariamente indisponivel!) :wink:")
+  ajuda.setDescription("***k!addbemvindo <#id chat de boas-vindas>*** **-** *Para adicionar o chat que irá receber as pessoas* :inbox_tray:\n\n***k!removerbemvindo*** **-** *Para remover mensagem de boas-vindas, caso queira adicionar outra mensagem, ou, simplesmente tirar!* :inbox_tray:\n\n*Kitsune também tem um sistema de anti-convite para que ninguém consiga divulgar no seu servidor!* (temporariamente indisponivel!) :wink:")
   msg.edit(ajuda)
       })
 

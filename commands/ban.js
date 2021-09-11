@@ -8,6 +8,10 @@ module.exports = {
     message.delete()
 
     let embed = new MessageEmbed()
+
+    var banimentos = db.get(`bans${message.author.id}`)
+    if (banimentos == null) banimentos = 0;
+
     if(!message.member.hasPermission('BAN_MEMBERS')) {
       embed.setAuthor('Mensagem de erro')
       embed.setDescription(`${message.author.username}, você não tem permissão para usar este comando!`)
@@ -58,6 +62,7 @@ module.exports = {
   
       if (!motivo) {
         let embed2 = new MessageEmbed()
+        let embed3 = new MessageEmbed()
         embed.setAuthor("Sistema de confirmação")
         embed.setDescription(`**Deseja banir o usuário a seguir?**`)
         embed.addField('Usuario:', `${target} (**${target.user.id}**)`, false)
@@ -79,15 +84,26 @@ module.exports = {
           embed2.addField('Motivo:', ('Nenhum motivo inserido.'), false)
           embed2.setColor("#851d86")
           embed2.setThumbnail(message.author.displayAvatarURL({ dynamic: true, format: "png", size: 1024}))
-          embed2.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
+          embed2.setFooter(`• ${message.author.tag} já baniu ${banimentos} pessoas` , message.author.displayAvatarURL({format: "png"}))
+          db.add(`bans${message.author.id}`, 1);
           target.ban();
-          return message.channel.send(embed2)
+          message.channel.send(embed2)
+
+          embed3.setTitle("Você foi banido!")
+          embed3.addField('Usuario Banido:', `**Tag: **${target.user.tag}\n**Id:** **${target.user.id}**`, false)
+          embed3.addField('Moderador:', `**Tag: **${message.author.tag}\n**Id:** **${message.author.id}**`, false)
+          embed3.addField('Motivo:', ('Nenhum motivo inserido.'), false)
+          embed3.setColor("#851d86")
+          embed3.setThumbnail(message.author.displayAvatarURL({ dynamic: true, format: "png", size: 1024}))
+          embed3.setFooter(`• ${message.author.tag} já baniu ${banimentos} pessoas` , message.author.displayAvatarURL({format: "png"}))
+          target.send(embed3)
   
         });
   });
       } else {
-  
+        
         let embed2 = new MessageEmbed()
+        let embed3 = new MessageEmbed()
   
         embed.setAuthor("Sistema de confirmação")
         embed.setDescription(`**Deseja banir o usuário a seguir?**`)
@@ -110,9 +126,19 @@ module.exports = {
             embed2.addField('Motivo:', ('Nenhum motivo inserido.'), false)
             embed2.setColor("#851d86")
             embed2.setThumbnail(message.author.displayAvatarURL({ dynamic: true, format: "png", size: 1024}))
-            embed2.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
+            embed2.setFooter(`• ${message.author.tag} já baniu ${banimentos} pessoas` , message.author.displayAvatarURL({format: "png"}))
+            db.add(`bans${message.author.id}`, 1);
             target.ban();
-            return message.channel.send(embed2)
+            message.channel.send(embed2)
+
+            embed3.setTitle("Você foi banido!")
+            embed3.addField('Usuario Banido:', `**Tag: **${target.user.tag}\n**Id:** **${target.user.id}**`, false)
+            embed3.addField('Moderador:', `**Tag: **${message.author.tag}\n**Id:** **${message.author.id}**`, false)
+            embed3.addField('Motivo:', ('Nenhum motivo inserido.'), false)
+            embed3.setColor("#851d86")
+            embed3.setThumbnail(message.author.displayAvatarURL({ dynamic: true, format: "png", size: 1024}))
+            embed3.setFooter(`• ${message.author.tag} já baniu ${banimentos} pessoas` , message.author.displayAvatarURL({format: "png"}))
+            target.send(embed3)
         });
   });
       }
