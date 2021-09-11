@@ -13,7 +13,7 @@ module.exports = {
         if(!message.member.hasPermission('MANAGE_MESSAGES')) {
 
             embed.setAuthor('Mensagem de erro')
-            embed.setDescription(':x: | Você não tem permissão para usar esse comando.')
+            embed.setDescription('Você não tem permissão para usar esse comando.')
             embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
             embed.setColor('#cc0000')
             return message.channel.send(embed).then(msg => {
@@ -27,7 +27,7 @@ module.exports = {
         if(!Member) {
 
             embed.setAuthor('Mensagem de erro')
-            embed.setDescription(':x: | Eu não encontrei este membro.')
+            embed.setDescription('Eu não encontrei este membro.')
             embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
             embed.setColor('#cc0000')
             return message.channel.send(embed).then(msg => {
@@ -39,7 +39,7 @@ module.exports = {
         if(!time) { 
 
             embed.setAuthor('Mensagem de erro')
-            embed.setDescription(':x: | Por favor especifique um tempo. 5s, 5m, 5h.')
+            embed.setDescription('Por favor especifique um tempo. 5s, 5m, 5h.')
             embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
             embed.setColor('#cc0000')
             return message.channel.send(embed).then(msg => {
@@ -53,7 +53,7 @@ module.exports = {
         if (!motivo) {
 
             embed.setAuthor('Mensagem de erro')
-            embed.setDescription(':x: | **Não esqueça de falar o motivo!**')
+            embed.setDescription('**Não esqueça de falar o motivo!**')
             embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
             embed.setColor('#cc0000')
             return message.channel.send(embed).then(msg => {
@@ -67,7 +67,7 @@ module.exports = {
         if(!role) {
 
                 embed.setAuthor('Mensagem de erro')
-                embed.setDescription(':x: | O cargo "mutado" não foi encontrado, estou criando este cargo agora mesmo!')
+                embed.setDescription('O cargo "mutado" não foi encontrado, estou criando este cargo agora mesmo!')
                 embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
                 embed.setColor('#cc0000')
                 message.channel.send(embed).then(msg => {
@@ -101,7 +101,7 @@ module.exports = {
                 });
 
                 embed.setAuthor('Mensagem de aviso')
-                embed.setDescription(':white_check_mark: | O cargo "mutado" foi criado com sucesso! Estou mutando agora mesmo!')
+                embed.setDescription('O cargo "mutado" foi criado com sucesso! Estou mutando agora mesmo!')
                 embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
                 embed.setColor('#851d86')
                 await message.channel.send(embed).then(msg => {
@@ -118,7 +118,7 @@ module.exports = {
         if(Member.roles.cache.has(role2.id)) {
 
             embed.setAuthor('Mensagem de erro')
-            embed.setDescription(`:white_check_mark: | ${Member.displayName} *já foi mutado!*`)
+            embed.setDescription(`${Member.displayName} *já foi mutado!*`)
             embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
             embed.setColor('#cc0000')
             return message.channel.send(embed).then(msg => {
@@ -143,7 +143,7 @@ module.exports = {
         setTimeout(async () => {
             await Member.roles.remove(role2)
             embed.setAuthor('Mensagem de aviso')
-            embed.setDescription(`:white_check_mark: | Acabou a punição de ${Member.user.tag}!`)
+            embed.setDescription(`Acabou a punição de ${Member.user.tag}!`)
             embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
             embed.setColor('#851d86')
             message.channel.send(embed).then(msg => {

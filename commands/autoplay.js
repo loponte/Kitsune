@@ -22,7 +22,7 @@ module.exports = {
         }
         
         embed.setAuthor('Mensagem de aviso')
-        embed.setDescription("Set autoplay mode to `" + (mode ? "On" : "Off") + "`")
+        embed.setDescription("Autoplay `" + (mode ? "Ligado" : "Desligado") + "`")
         embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
         embed.setColor('#851d86')
         message.channel.send(embed).then(msg => {

@@ -78,7 +78,7 @@ client.on("message", async message => {
     cmd.run(client, message, args)
   } catch (e) {
     embed.setAuthor('Mensagem de erro')
-    embed.setDescription(`Erro: ${e}`)
+    embed.setDescription(e)
     embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({ format: "png" }))
     embed.setColor('#cc0000')
     console.error(e)

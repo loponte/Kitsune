@@ -9,7 +9,7 @@ module.exports = {
         if (!message.member.hasPermission("MANAGE_MESSAGES")) {
           {
             embed.setAuthor('Mensagem de erro')
-            embed.setDescription(`${message.author}, você precisa da permissão **MANAGE_MESSAGES* para executar este comando.`)
+            embed.setDescription(`${message.author}, você precisa da permissão **MANAGE_MESSAGES** para executar este comando.`)
             embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
             embed.setColor('#cc0000')
             return message.channel.send(embed).then(msg => {

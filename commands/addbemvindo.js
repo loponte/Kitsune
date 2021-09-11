@@ -13,7 +13,7 @@ module.exports = {
 
     if(!channel) {
       embed.setAuthor('Mensagem de erro')
-      embed.setDescription("Por favor, marque um canal que queira adicionar o boas-vindas.\nk!addbemvindo <#id-channel> mensagem que deseja.")
+      embed.setDescription("Por favor, marque um canal que queira adicionar o boas-vindas.\nk!addbemvindo <#id-canal>.")
       embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
       embed.setColor('#cc0000')
       return message.channel.send(embed).then(msg => {

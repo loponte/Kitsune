@@ -43,7 +43,7 @@ const music = msg.createReactionCollector(musicFilter);
 infos.on('collect', r2 => {
 
   ajuda.setTitle("**Comandos informativos!**")
-  ajuda.setDescription("***k!info*** **-** *Mostra as informações do server!*\n\n***k!ping*** **-** *Mostra a latência do bot com o servidor!*\n\n***k!convite*** **-** *Para entrar no servidor de suporte!*\n\n***k!avatar*** **-** *Para mostrar seu avatar ou k!avatar [pessoa] para mostrar o avatar de alguem!*" )
+  ajuda.setDescription("***k!info*** **-** *Mostra as informações do server!*\n\n***k!ping*** **-** *Mostra a latência do bot com o servidor!*\n\n***k!convite*** **-** *Para me convidar para seu server!*\n\n***k!avatar*** **-** *Para mostrar seu avatar ou k!avatar [pessoa] para mostrar o avatar de alguem!*" )
   msg.edit(ajuda)
 
 })
@@ -51,13 +51,13 @@ infos.on('collect', r2 => {
 adm.on('collect', r2 => {
 
   ajuda.setTitle("**Comandos Administrativos!**")
-  ajuda.setDescription("***k!mute <@user> <tempo> <motivo>*** **-** *Para mutar um membro!* :x:\n\n***k!unmute <@user>*** **-** *Para desmutar um membro!* :x:\n\n***k!ban <@user> <motivo>*** **-** *Para banir um membro!* :x:\n\n***k!unban <@id>*** **-** *Para desbanir um membro!* :ballot_box_with_check:\n\n***k!kick <@user> <motivo>*** **-** *Para expulsar um membro!* :boot:\n\n***k!clear*** **-** *Para excluir mensagens!* :broom:\n\n***k!lock*** **-** *Para lockar um chat!*")
+  ajuda.setDescription("***k!mute <@user> <tempo> <motivo>*** **-** *Para mutar um membro!* :x:\n\n***k!unmute <@user>*** **-** *Para desmutar um membro!* :x:\n\n***k!ban <@user> <motivo>*** **-** *Para banir um membro!* :x:\n\n***k!unban <@id>*** **-** *Para desbanir um membro!*\n\n***k!kick <@user> <motivo>*** **-** *Para expulsar um membro!*\n\n***k!clear*** **-** *Para excluir mensagens!*\n\n***k!lock*** **-** *Para lockar um chat!*\n\n***k!lockdown*** **-** *Para lockar todos os chats!*")
   msg.edit(ajuda)
 })
 
 fun.on('collect', r2 => {
   ajuda.setTitle("**Comandos de Diversão**")
-  ajuda.setDescription("***k!kiss*** **-** *Para beijar o seu amor! ❣*\n\n***k!hug*** **-** *Para abraçar e distribuir carinho! 💞*\n\n***k!tapa*** **-** *Para estapear ou socar aquele que te incomoda!* :raised_hand:\n\n***k!carinho*** **-** *para fazer carinho em alguem* ❣\n\n***k!ship*** **-** *Para ver a % de amor! 💕*\n\n***k!say + mensagem*** **-** *Para você fala pelo bot!* :incoming_envelope:")
+  ajuda.setDescription("***k!kiss*** **-** *Para beijar o seu amor!*\n\n***k!hug*** **-** *Para abraçar e distribuir carinho!*\n\n***k!tapa*** **-** *Para estapear ou socar aquele que te incomoda!*\n\n***k!carinho*** **-** *para fazer carinho em alguem*\n\n***k!ship*** **-** *Para ver a % de amor!*\n\n***k!say + mensagem*** **-** *Para você fala pelo bot!*")
   msg.edit(ajuda)
 })
 

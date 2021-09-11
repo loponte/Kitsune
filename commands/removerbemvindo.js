@@ -13,11 +13,14 @@ module.exports = {
 
     db.delete(`welchannel_${message.guild.id}`)
     db.delete(`welmessage_${message.guild.id}`)
-
-
-    message.channel.send(`***Mensagem de Bem-Vindo foi removida***`).then(msg => {
-      msg.delete({ timeout: 10000 })
+    const embed = new discord.MessageEmbed()
+    .setAuthor('Mensagem de aviso')
+    .setDescription('Mensagem de boas vindas foi removida.')
+    .setColor('#cc0000')
+    .setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({ format: "png" }))
+    return message.channel.send(embed).then(msg => {
+      msg.delete({ timeout: 5000 })
     })
-    .catch(console.error);
+      .catch(console.error);
   }
 }
