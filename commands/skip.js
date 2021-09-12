@@ -20,7 +20,7 @@ module.exports = {
         }
 
         const queue = client.distube.getQueue(message)
-        if (!queue) {
+        if (queue === null) {
             embed.setAuthor('Mensagem de erro')
             embed.setDescription(`Não há nada na fila agora!`)
             embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
