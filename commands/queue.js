@@ -62,14 +62,14 @@ module.exports = {
 
           function embedGenerator(serverQueue){
               const embeds = [];
-              let songs = 10;
-              for (let i = 1; i < serverQueue.songs.length; i += 10) {
+              let songs = 11;
+              for (let i = 0; i < serverQueue.songs.length; i += 11) {
                   const current = serverQueue.songs.slice(i, songs)
-                  songs += 10;
-                  let j = i;
-                  const info = current.map(song => `${++j}. [${song.title}](${song.url})`).join('\n')
+                  songs += 11;
+                  let j = --i;
+                  const info = current.map(song => `${++j}. [${song.name}](${song.url})`).join('\n')
                   const msg = new Discord.MessageEmbed()
-                  .setDescription(`Tocando Agora: [${serverQueue.songs[0].title}](${serverQueue.songs[0].url})\n ${info}`)
+                  .setDescription(info)
                   .setColor('#851d86')
                   .setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
                   embeds.push(msg)

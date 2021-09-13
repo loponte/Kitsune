@@ -71,7 +71,7 @@ event.on('collect', r2 => {
 music.on('collect', r2 => {
 
   ajuda.setTitle("**Sistema de musica!**")
-  ajuda.setDescription("***k!join, k!play, k!resume, k!lyrics, k!volume, k!skip, k!stop, k!pause, k!autoplay, k!queue, k!repeat*** **-** *para saber tudo sobre o sistema de musica!*\n\n***k!filter*** **-** *para adicionar um filtro. Exemplo: k!filter 3d*\n\n***Filtros existentes:***\n*3d, bassboost, echo, karaoke, nightcore, vaporwave, flanger, gate, haas, reverse, surround, phaser, tremolo, earwax.*")
+  ajuda.setDescription("***k!join, k!play, k!resume, k!lyrics, k!volume, k!skip, k!clearqueue, k!disconnect, k!jump, k!pause, k!autoplay, k!queue, k!repeat*** **-** *para saber tudo sobre o sistema de musica!*\n\n***k!filter*** **-** *para adicionar um filtro. Exemplo: k!filter 3d*\n\n***Filtros existentes:***\n*3d, bassboost, echo, karaoke, nightcore, vaporwave, flanger, gate, haas, reverse, surround, phaser, tremolo, earwax.*")
   msg.edit(ajuda)
       })
     })
