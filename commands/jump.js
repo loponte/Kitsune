@@ -5,18 +5,19 @@ module.exports = {
     aliases: [""],
     run: async (client, message, args) => {
         message.delete()
+
         let embed = new MessageEmbed()
         embed.setAuthor('Mensagem de aviso')
         embed.setDescription(`Pulando para a musica ${args[0]}`)
         embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({ format: "png" }))
         embed.setColor('#851d86')
 
-        if (0 <= Number(args[0]) && Number(args[0]) <= queue.songs.length) {
+        if (!args[0]) {
             embed.setAuthor('Mensagem de aviso')
-            embed.setDescription(`Numero invalido.`)
+            embed.setDescription(`Insira um numero invalido.`)
             embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({ format: "png" }))
             embed.setColor('#851d86')
-            message.channel.send(embed).then(msg => {
+            return message.channel.send(embed).then(msg => {
                 msg.delete({ timeout: 10000 })
             })
                 .catch(console.error);

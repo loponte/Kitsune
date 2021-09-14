@@ -99,7 +99,7 @@ client.on('voiceStateUpdate', (oldState, newState) => {
     setTimeout(() => { // if 1 (you), wait five minutes
       if (!(oldState.channel.members.size - 1)) // if there's still 1 member, 
          oldState.channel.leave(); // leave
-     }, 60000); // (5 min in ms)
+     }, 60000); // (1 min in ms)
 });
 
 const status = queue => `Volume: ${queue.volume}% | Filtro: ${queue.filter || "Off"} | Loop: ${queue.repeatMode ? queue.repeatMode === 2 ? "Playlist total" : "Musica" : "Off"} | Autoplay: ${queue.autoplay ? "On" : "Off"}`
