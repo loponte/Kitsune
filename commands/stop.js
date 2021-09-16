@@ -18,6 +18,18 @@ module.exports = {
         .catch(console.error);
     }
 
+    const queue = client.distube.getQueue(message)
+        if (!queue) {
+            embed.setAuthor('Mensagem de erro')
+            embed.setDescription(`Não há nada na fila agora!`)
+            embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
+            embed.setColor('#cc0000')
+            return message.channel.send(embed).then(msg => {
+                msg.delete({ timeout: 10000 })
+              })
+              .catch(console.error);
+            }
+
     embed.setAuthor('Mensagem de aviso')
     embed.setDescription(`Playlist excluida.`)
     embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({ format: "png" }))
