@@ -32,7 +32,7 @@ module.exports = {
         }
         try {
             embed.setAuthor('Mensagem de aviso')
-            embed.setDescription(`Skip! Agora tocando:\n${queue.songs[1].name}`)
+            embed.setDescription(`Skip! Agora tocando:\n${queue.songs[0].name}`)
             embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
             embed.setColor('#851d86')
             client.distube.skip(message)

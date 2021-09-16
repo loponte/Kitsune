@@ -91,15 +91,15 @@ client.on("message", async message => {
 client.on('voiceStateUpdate', (oldState, newState) => {
 
   // if nobody left the channel in question, return.
-  if (oldState.channelID !==  oldState.guild.me.voice.channelID || newState.channel)
+  if (oldState.channelID !== oldState.guild.me.voice.channelID || newState.channel)
     return;
 
   // otherwise, check how many people are in the channel now
   if (!(oldState.channel.members.size - 1))
     setTimeout(() => { // if 1 (you), wait five minutes
       if (!(oldState.channel.members.size - 1)) // if there's still 1 member, 
-         oldState.channel.leave(); // leave
-     }, 60000); // (1 min in ms)
+        oldState.channel.leave(); // leave
+    }, 60000); // (1 min in ms)
 });
 
 const status = queue => `Volume: ${queue.volume}% | Filtro: ${queue.filter || "Off"} | Loop: ${queue.repeatMode ? queue.repeatMode === 2 ? "Playlist total" : "Musica" : "Off"} | Autoplay: ${queue.autoplay ? "On" : "Off"}`
@@ -190,7 +190,7 @@ client.on("guildMemberAdd", async member => {
   welcomeCanvas.context.fill()
 
   canvas.context.font = '42px Dudu Calligraphy',
-  canvas.context.textAlign = 'center';
+    canvas.context.textAlign = 'center';
   canvas.context.fillText(membro, 512, 410)
   canvas.context.font = '32px Dudu Calligraphy'
   canvas.context.fillText(`Você é o ${server} membro`, 512, 455)
@@ -207,6 +207,18 @@ client.on("guildMemberAdd", async member => {
     ch.send(`☕ Olá ${member}, você está no ${member.guild.name}!`, atta)
   } catch (e) {
     console.error(e)
+  }
+});
+
+client.on('guildMemberUpdate', (oldMember, newMember) => {
+  if (oldMember.premiumSince !== newMember.premiumSince) {
+    const channel = client.channels.cache.get('887770931408306266')
+    const embed2 = new Discord.MessageEmbed()
+        .setDescription(`${newMember} acaba de dar Booost no servidor!`)
+        .setColor('#cc0000')
+        .setFooter(`Direitos autorais: Loponte & Nate || The Happy.js`, avatar)
+        .setAuthor("Seja bem vindo!", avatar);
+        channel.send(embed2)
   }
 });
 
