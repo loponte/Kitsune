@@ -10,22 +10,30 @@ module.exports = {
     utilisation: '{prefix}loop',
 
     run: async (client, message, args) => {
+
+      const serverQueue = client.distube.getQueue(message)
+
       let embed = new MessageEmbed()
+
       let songName = '';
       let pages = [];
       let currentPage = 0;
 
-      const messageFilter = m => m.author.id === message.author.id;
+      if(!serverQueue){
+          embed.setAuthor('Mensagem de erro')
+          embed.setDescription(`Não há nada na fila agora!`)
+          embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
+          embed.setColor('#cc0000')
+          return message.channel.send(embed).then(msg => {
+              msg.delete({ timeout: 10000 })
+            })
+            .catch(console.error);
+      }
+
       const reactionFilter = (reaction, user) => ['⬅', '➡'].includes(reaction.emoji.name) && (message.author.id === user.id)
 
-      embed.setDescription('Porfavor, agora escreva o nome da musica.')
-      embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
-      embed.setColor('#851d86')
-      message.channel.send(embed)
-      await message.channel.awaitMessages(messageFilter, {max: 1, time: 15000}).then(async collected => {
-        songName = collected.first().content;
+        songName = serverQueue.songs[0].name;
         await finder (songName, message, pages)
-      })
 
       const lyricsEmbed = await message.channel.send(`paginas: ${currentPage+1}/${pages.length}`, pages[currentPage])
       await lyricsEmbed.react('⬅');
@@ -61,33 +69,3 @@ module.exports = {
       }
     }
   }
-      /*
-            const queue = client.player.getQueue(message);
-            let embed = new MessageEmbed();
-        if (!queue) {
-            embed.setAuthor('Mensagem de erro')
-            embed.setDescription('Não tem nenhuma musica na fila.')
-            embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
-            embed.setColor('#cc0000')
-            return message.channel.send(embed)
-        }
-        
-        let lyrics = null;
-        const track = client.player.nowPlaying(message);
-
-        message.send.channel(track.title);
-
-      lyrics = await lyricsFinder(track.title, "");
-
-    let lyricsEmbed = new MessageEmbed()
-      .setDescription(lyrics)
-      .setColor("#851d86")
-      .setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
-      .setTimestamp();
-
-    if (lyricsEmbed.description.length >= 2048)
-      lyricsEmbed.description = `${lyricsEmbed.description.substr(0, 2045)}...`;
-    return message.channel.send(lyricsEmbed).catch(console.error);
-  }
-};
-        */

@@ -210,16 +210,4 @@ client.on("guildMemberAdd", async member => {
   }
 });
 
-client.on('guildMemberUpdate', (oldMember, newMember) => {
-  if (oldMember.premiumSince !== newMember.premiumSince) {
-    const channel = client.channels.cache.get('887770931408306266')
-    const embed2 = new Discord.MessageEmbed()
-        .setDescription(`${newMember} acaba de dar Booost no servidor!`)
-        .setColor('#cc0000')
-        .setFooter(`Direitos autorais: Loponte & Nate || The Happy.js`, avatar)
-        .setAuthor("Seja bem vindo!", avatar);
-        channel.send(embed2)
-  }
-});
-
 client.login(config.token)
