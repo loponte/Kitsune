@@ -1,4 +1,11 @@
-node_modules
-config.json
+/config.json
+
+# DataBase
 json.sqlite
+
+# Dependency directories
+node_modules/
 package-lock.json
+
+# Temp ignore
+config.json
