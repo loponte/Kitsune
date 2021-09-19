@@ -13,6 +13,25 @@ Este projeto foi feito somente pelo Loponte, no intuito de aprender sobre progra
 *  A quanto tempo você esta desenvolvendo a Kitsune? (A 2 anos, desde i i de 2020 até agora, casualmente faço uns patches novos para atualiza-la.)
 *  Onde posso encontrar o bot online? (Você pode [clicar aqui](https://discord.com/api/oauth2/authorize?client_id=735241944757829792&permissions=8&scope=bot) e adicionar o bot no seu servidor.)
 
+## 🔥 Instalação
+
+```
+git clone https://github.com/loponte/Kitsune.git
+cd Kitsune
+npm install
+```
+
+## ⚙ Configuração
+Troque o nome do `config.json.exemplo` para `config.json`
+### ⚠️ Nunca coloque seu token na internet ⚠️
+
+```js
+{
+    "prefix": " ",
+    "token": " "
+}
+```
+
 ![Kitsune](https://cdn.discordapp.com/attachments/852996930740682782/884846115768385558/Screenshot_3.png)
 
 ## 💬 Comandos
