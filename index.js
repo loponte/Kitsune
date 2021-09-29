@@ -10,7 +10,7 @@ const Canvas = require('canvas')
 let embed = new MessageEmbed()
 
 client.config = require("./config.json")
-client.distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true, leaveOnEnd: false, leaveOnEmpty: false, leaveOnStop: false })
+client.distube = new DisTube(client, { searchSongs: false, emitNewSongOnly: true, leaveOnEnd: false, leaveOnEmpty: true, leaveOnStop: false })
 client.commands = new Discord.Collection()
 client.aliases = new Discord.Collection()
 client.emotes = config.emoji
