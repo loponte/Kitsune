@@ -16,6 +16,7 @@ Este projeto foi feito somente pelo Loponte, no intuito de aprender sobre progra
 ## 🔥 Instalação
 
 ```
+Instalar node.js [clicando aqui](https://nodejs.org/dist/v14.18.0/node-v14.18.0-x64.msi)
 git clone https://github.com/loponte/Kitsune.git
 cd Kitsune
 npm install
