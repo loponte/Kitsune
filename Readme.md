@@ -14,9 +14,8 @@ Este projeto foi feito somente pelo Loponte, no intuito de aprender sobre progra
 *  Onde posso encontrar o bot online? (Você pode [clicar aqui](https://discord.com/api/oauth2/authorize?client_id=735241944757829792&permissions=8&scope=bot) e adicionar o bot no seu servidor.)
 
 ## 🔥 Instalação
-
-```
 Instalar node.js [clicando aqui](https://nodejs.org/dist/v14.18.0/node-v14.18.0-x64.msi)
+```
 git clone https://github.com/loponte/Kitsune.git
 cd Kitsune
 npm install
