@@ -9,7 +9,7 @@ module.exports = {
 
         let user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
   
-        if (user.id === '380493625227870222') {
+        if (user.id === '185562772464074753') {
           if (!args[0]) {
             embed.setAuthor('Mensagem de erro')
             embed.setDescription(`${message.author}, você deve inserir quantas mensagens deseja apagar no chat.`)

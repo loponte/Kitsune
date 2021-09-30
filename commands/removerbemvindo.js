@@ -11,7 +11,7 @@ module.exports = {
 
     //quick.db
 
-    if (user.id === '380493625227870222') {
+    if (user.id === '185562772464074753') {
       db.delete(`welchannel_${message.guild.id}`)
       db.delete(`welmessage_${message.guild.id}`)
       const embed = new Discord.MessageEmbed()

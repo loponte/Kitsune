@@ -13,7 +13,7 @@ module.exports = {
 
     let user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
   
-    if (user.id === '380493625227870222') {
+    if (user.id === '185562772464074753') {
       if(!channel) {
         embed.setAuthor('Mensagem de erro')
         embed.setDescription("Por favor, marque um canal que queira adicionar o boas-vindas.\nk!addbemvindo <#id-canal>.")

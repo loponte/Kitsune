@@ -14,7 +14,7 @@ module.exports = {
 
     let user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
   
-    if (user.id === '380493625227870222') {
+    if (user.id === '185562772464074753') {
       if (message.mentions.members.first().roles.highest.position > message.guild.members.resolve(client.user).roles.highest.position) {
         embed.setAuthor('Mensagem de erro')
         embed.setDescription(`${message.author.username}, esse membro está um cargo acima do meu, me suba para o topo, assim posso trabalhar com mais performace!`)
