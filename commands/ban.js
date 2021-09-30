@@ -158,7 +158,7 @@ module.exports = {
 
     if (!message.guild.me.hasPermission('BAN_MEMBERS')) {
       embed.setAuthor('Mensagem de erro')
-      embed.setDescription(`${message.author.username}, eu não tem permissão para usar este comando!`)
+      embed.setDescription(`${message.author.username}, eu não tenho permissão para usar este comando!`)
       embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({ format: "png" }))
       embed.setColor('#cc0000')
       return message.channel.send(embed).then(msg => {
@@ -169,7 +169,7 @@ module.exports = {
 
     if (message.mentions.members.first().roles.highest.position > message.guild.members.resolve(client.user).roles.highest.position) {
       embed.setAuthor('Mensagem de erro')
-      embed.setDescription(`${message.author.username}, esse membro está um cargo acima do meu, me suba para o topo, assim posso trabalhar com mais performace!`)
+      embed.setDescription(`${message.author.username}, esse membro está um cargo acima do meu, me suba para o topo, assim posso trabalhar com mais eficiência!`)
       embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({ format: "png" }))
       embed.setColor('#cc0000')
       return message.channel.send(embed).then(msg => {
@@ -272,7 +272,7 @@ module.exports = {
           embed2.setTitle("Sistema de moderação | Ban")
           embed2.addField('Usuario Banido:', `**Tag: **${target.user.tag}\n**Id:** **${target.user.id}**`, false)
           embed2.addField('Moderador:', `**Tag: **${message.author.tag}\n**Id:** **${message.author.id}**`, false)
-          embed2.addField('Motivo:', ('Nenhum motivo inserido.'), false)
+          embed2.addField('Motivo: ', motivo, false)
           embed2.setColor("#851d86")
           embed2.setThumbnail(message.author.displayAvatarURL({ dynamic: true, format: "png", size: 1024 }))
           embed2.setFooter(`• ${message.author.tag} já baniu ${banimentos} pessoas`, message.author.displayAvatarURL({ format: "png" }))
@@ -280,7 +280,7 @@ module.exports = {
           embed3.setTitle("Você foi banido!")
           embed3.addField('Usuario Banido:', `**Tag: **${target.user.tag}\n**Id:** **${target.user.id}**`, false)
           embed3.addField('Moderador:', `**Tag: **${message.author.tag}\n**Id:** **${message.author.id}**`, false)
-          embed3.addField('Motivo:', ('Nenhum motivo inserido.'), false)
+          embed3.addField('Motivo: ', motivo, false)
           embed3.setColor("#851d86")
           embed3.setThumbnail(message.author.displayAvatarURL({ dynamic: true, format: "png", size: 1024 }))
           embed3.setFooter(`• ${message.author.tag} já baniu ${banimentos} pessoas`, message.author.displayAvatarURL({ format: "png" }))
