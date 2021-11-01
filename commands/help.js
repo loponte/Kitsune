@@ -10,8 +10,8 @@ const ajuda = new Discord.MessageEmbed()
 .setColor("#851d86")
 .setTitle("Sistema de Ajuda")
 .setThumbnail(message.author.displayAvatarURL({ dynamic: true, format: "png", size: 1024}))
-.setDescription("Reaja de acordo com o que esta procurando!\n🛎 - Informações\n\n🛠 - Administrativos\n\n🎪 - Diversão\n\n🔮 - Eventos\n\n🎵 - Musicas")
-.addFields({ name: '***Quer me adicionar no seu servidor?***', value: "[Clique Aqui](https://discord.com/api/oauth2/authorize?client_id=735241944757829792&permissions=8&scope=bot)", incline: true})
+.setDescription("Reaja de acordo com o que esta procurando!\nLembre-se de sempre me colocar acima de todos os cargos, assim, funcionarei melhor e nenhum erro ocorrerá.\n\n🛎 - Informações\n\n🛠 - Administrativos\n\n🎪 - Diversão\n\n🔮 - Eventos\n\n🎵 - Musicas")
+.addFields({ name: '***Quer entrar no meu servidor e receber todas as atualizações?***', value: "[Clique Aqui](https://discord.com/invite/vgBKHfc7Yk)", incline: true})
 .setTimestamp()
 .setFooter(`Comando solicitado por ${message.member.displayName}`, message.author.displayAvatarURL({Size: 32}))
 
@@ -43,7 +43,7 @@ const music = msg.createReactionCollector(musicFilter);
 infos.on('collect', r2 => {
 
   ajuda.setTitle("**Comandos informativos!**")
-  ajuda.setDescription("***k!info*** **-** *Mostra as informações do server!*\n\n***k!ping*** **-** *Mostra a latência do bot com o servidor!*\n\n***k!convite*** **-** *Para me convidar para seu server!*\n\n***k!avatar*** **-** *Para mostrar seu avatar ou k!avatar [pessoa] para mostrar o avatar de alguem!*" )
+  ajuda.setDescription("***k!vip help*** **-** *Mostra todas as informações para criar e administrar um vip!*\n\n***k!info*** **-** *Mostra as informações do server!*\n\n***k!ping*** **-** *Mostra a latência do bot com o servidor!*\n\n***k!convite*** **-** *Para me convidar para seu server!*\n\n***k!avatar*** **-** *Para mostrar seu avatar ou k!avatar [pessoa] para mostrar o avatar de alguem!*" )
   msg.edit(ajuda)
 
 })
@@ -51,7 +51,7 @@ infos.on('collect', r2 => {
 adm.on('collect', r2 => {
 
   ajuda.setTitle("**Comandos Administrativos!**")
-  ajuda.setDescription("***k!mute <@user> <tempo> <motivo>*** **-** *Para mutar um membro!*\n\n***k!unmute <@user>*** **-** *Para desmutar um membro!*\n\n***k!ban <@user> <motivo>*** **-** *Para banir um membro!*\n\n***k!unban <@id>*** **-** *Para desbanir um membro!*\n\n***k!kick <@user> <motivo>*** **-** *Para expulsar um membro!*\n\n***k!clear*** **-** *Para excluir mensagens!*\n\n***k!lock*** **-** *Para lockar um chat!*\n\n***k!lockdown*** **-** *Para lockar todos os chats!*")
+  ajuda.setDescription("***k!vipadm create <@user> <tempo>*** **-** *Para criar um vip!*\n\n***k!vipadm delete <@user>*** **-** *Para deletar um vip!*\n\n***k!vipadm deleteguild*** **-** *Para deletar a config do server!*\n\n***k!mute <@user> <tempo> <motivo>*** **-** *Para mutar um membro!*\n\n***k!unmute <@user>*** **-** *Para desmutar um membro!*\n\n***k!ban <@user> <motivo>*** **-** *Para banir um membro!*\n\n***k!unban <@id>*** **-** *Para desbanir um membro!*\n\n***k!kick <@user> <motivo>*** **-** *Para expulsar um membro!*\n\n***k!clear*** **-** *Para excluir mensagens!*\n\n***k!lock*** **-** *Para lockar um chat!*\n\n***k!lockdown*** **-** *Para lockar todos os chats!*")
   msg.edit(ajuda)
 })
 

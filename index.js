@@ -6,6 +6,20 @@ const fs = require("fs")
 const config = require("./config.json")
 const db = require("quick.db")
 const Canvas = require('canvas')
+const moment = require('moment');
+
+const mongoose = require('mongoose');
+mongoose.connect(config.database).then(() => {
+    console.log('Database Conectada')
+}).catch((err) => {
+    console.log("Não foi a DataBase.", err);
+});
+require('./modules/Vip.js');
+require('./modules/GuildCreate.js');
+
+const log = message => {
+    console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
+}
 
 let embed = new MessageEmbed()
 
