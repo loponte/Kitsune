@@ -4,21 +4,21 @@ const { MessageEmbed } = require('discord.js')
 const client = new Discord.Client()
 const fs = require("fs")
 const config = require("./config.json")
-const db = require("quick.db")
 const Canvas = require('canvas')
 const moment = require('moment');
 
 const mongoose = require('mongoose');
 mongoose.connect(config.database).then(() => {
-    console.log('Database Conectada')
+  console.log('Database Conectada')
 }).catch((err) => {
-    console.log("Não foi a DataBase.", err);
+  console.log("Não foi a DataBase.", err);
 });
 require('./modules/Vip.js');
 require('./modules/GuildCreate.js');
+require('./modules/WelcomeSchema.js');
 
 const log = message => {
-    console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
+  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
 }
 
 let embed = new MessageEmbed()
@@ -159,22 +159,20 @@ client.distube
 
 //define a msg de boas vindas
 
-client.on("guildMemberAdd", async member => {
+client.on("guildMemberAdd", async (member, guild) => {
 
-  let chx = db.get(`welchannel_${member.guild.id}`);
-  let ch = client.channels.cache.get(chx);
+  const WelcomeSchema = require('./modules/WelcomeSchema')
+
+  WelcomeSchema.findOne({ guildId: member.guild.id }, async (err, data) => {
+    if (!data) return
+  })
+
+  let ch = message.guild.channels.cache.get(data.channelId);
+
   var welcomeCanvas = {};
   let canvas = welcomeCanvas;
   let membro = member.user.tag;
   let server = member.guild.memberCount;
-
-  if (chx === null) {
-    return;
-  }
-
-  if (ch === null) {
-    return;
-  }
 
   welcomeCanvas.create = Canvas.createCanvas(1024, 500)
   welcomeCanvas.context = welcomeCanvas.create.getContext('2d')
