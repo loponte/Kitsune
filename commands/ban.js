@@ -13,7 +13,7 @@ module.exports = {
     if (banimentos == null) banimentos = 0;
 
     let user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
-  
+
     if (user.id === '185562772464074753') {
       if (message.mentions.members.first().roles.highest.position > message.guild.members.resolve(client.user).roles.highest.position) {
         embed.setAuthor('Mensagem de erro')
@@ -25,9 +25,9 @@ module.exports = {
         })
           .catch(console.error);
       }
-  
+
       let target = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
-  
+
       if (!target) {
         embed.setAuthor('Mensagem de erro')
         embed.setDescription(`${message.author.username}, por favor, mencione a pessoa que você quer banir!`)
@@ -38,7 +38,7 @@ module.exports = {
         })
           .catch(console.error);
       }
-  
+
       if (target.id === message.author.id) {
         embed.setAuthor('Mensagem de erro')
         embed.setDescription(`${message.author.username}, você não pode banir você mesmo!`)
@@ -49,9 +49,9 @@ module.exports = {
         })
           .catch(console.error);
       }
-  
+
       const motivo = args.slice(1).join(" ");
-  
+
       if (!motivo) {
         let embed2 = new MessageEmbed()
         let embed3 = new MessageEmbed()
@@ -64,11 +64,11 @@ module.exports = {
         embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({ format: "png" }))
         message.channel.send(embed).then(msg => {
           msg.react("👍").then(r => { });
-  
+
           let Filtro = (reaction, user) => reaction.emoji.name === "👍" && user.id === message.author.id;
-  
+
           const coletor = msg.createReactionCollector(Filtro);
-  
+
           coletor.on("collect", em => {
             embed2.setTitle("Sistema de moderação | Ban")
             embed2.addField('Usuario Banido:', `**Tag: **${target.user.tag}\n**Id:** **${target.user.id}**`, false)
@@ -77,7 +77,7 @@ module.exports = {
             embed2.setColor("#851d86")
             embed2.setThumbnail(message.author.displayAvatarURL({ dynamic: true, format: "png", size: 1024 }))
             embed2.setFooter(`• ${message.author.tag} já baniu ${banimentos} pessoas`, message.author.displayAvatarURL({ format: "png" }))
-  
+
             embed3.setTitle("Você foi banido!")
             embed3.addField('Usuario Banido:', `**Tag: **${target.user.tag}\n**Id:** **${target.user.id}**`, false)
             embed3.addField('Moderador:', `**Tag: **${message.author.tag}\n**Id:** **${message.author.id}**`, false)
@@ -85,9 +85,9 @@ module.exports = {
             embed3.setColor("#851d86")
             embed3.setThumbnail(message.author.displayAvatarURL({ dynamic: true, format: "png", size: 1024 }))
             embed3.setFooter(`• ${message.author.tag} já baniu ${banimentos} pessoas`, message.author.displayAvatarURL({ format: "png" }))
-  
+
             db.add(`bans${message.author.id}`, 1);
-  
+
             try {
               target.ban();
               target.send(embed3)
@@ -98,10 +98,10 @@ module.exports = {
           });
         });
       } else {
-  
+
         let embed2 = new MessageEmbed()
         let embed3 = new MessageEmbed()
-  
+
         embed.setAuthor("Sistema de confirmação")
         embed.setDescription(`**Deseja banir o usuário a seguir?**`)
         embed.addField('Usuario:', `${target} (**${target.user.id}**)`, false)
@@ -111,11 +111,11 @@ module.exports = {
         embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({ format: "png" }))
         message.channel.send(embed).then(msg => {
           msg.react("👍").then(r => { });
-  
+
           let Filtro = (reaction, user) => reaction.emoji.name === "👍" && user.id === message.author.id;
-  
+
           const coletor = msg.createReactionCollector(Filtro);
-  
+
           coletor.on("collect", em => {
             embed2.setTitle("Sistema de moderação | Ban")
             embed2.addField('Usuario Banido:', `**Tag: **${target.user.tag}\n**Id:** **${target.user.id}**`, false)
@@ -124,7 +124,7 @@ module.exports = {
             embed2.setColor("#851d86")
             embed2.setThumbnail(message.author.displayAvatarURL({ dynamic: true, format: "png", size: 1024 }))
             embed2.setFooter(`• ${message.author.tag} já baniu ${banimentos} pessoas`, message.author.displayAvatarURL({ format: "png" }))
-  
+
             embed3.setTitle("Você foi banido!")
             embed3.addField('Usuario Banido:', `**Tag: **${target.user.tag}\n**Id:** **${target.user.id}**`, false)
             embed3.addField('Moderador:', `**Tag: **${message.author.tag}\n**Id:** **${message.author.id}**`, false)

@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js")
 
 module.exports = {
   name: "clearqueue",
-  aliases: ["cq","stop"],
+  aliases: ["cq", "stop"],
   run: async (client, message, args) => {
     message.delete()
     let embed = new MessageEmbed()
@@ -19,16 +19,16 @@ module.exports = {
     }
 
     const queue = client.distube.getQueue(message)
-        if (!queue) {
-            embed.setAuthor('Mensagem de erro')
-            embed.setDescription(`Não há nada na fila agora!`)
-            embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
-            embed.setColor('#cc0000')
-            return message.channel.send(embed).then(msg => {
-                msg.delete({ timeout: 10000 })
-              })
-              .catch(console.error);
-            }
+    if (!queue) {
+      embed.setAuthor('Mensagem de erro')
+      embed.setDescription(`Não há nada na fila agora!`)
+      embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({ format: "png" }))
+      embed.setColor('#cc0000')
+      return message.channel.send(embed).then(msg => {
+        msg.delete({ timeout: 10000 })
+      })
+        .catch(console.error);
+    }
 
     embed.setAuthor('Mensagem de aviso')
     embed.setDescription(`Playlist excluida.`)

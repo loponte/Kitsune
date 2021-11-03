@@ -167,7 +167,7 @@ client.on("guildMemberAdd", async (member, guild) => {
     if (!data) return
   })
 
-  let ch = message.guild.channels.cache.get(data.channelId);
+  let ch = member.guild.channels.cache.get(data.channelId);
 
   var welcomeCanvas = {};
   let canvas = welcomeCanvas;

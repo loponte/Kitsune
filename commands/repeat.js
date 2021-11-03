@@ -12,23 +12,23 @@ module.exports = {
             embed.setAuthor('Mensagem de erro')
             embed.setDescription('Você não está no mesmo canal de voz. Entre no mesmo canal de voz, ou aguarde sua vez.')
             embed.setColor('#cc0000')
-            embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
+            embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({ format: "png" }))
             return message.channel.send(embed).then(msg => {
                 msg.delete({ timeout: 5000 })
-              })
-              .catch(console.error);
+            })
+                .catch(console.error);
         }
 
         const queue = client.distube.getQueue(message)
         if (!queue) {
             embed.setAuthor('Mensagem de erro')
             embed.setDescription(`Não há nada na fila agora!`)
-            embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
+            embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({ format: "png" }))
             embed.setColor('#cc0000')
             return message.channel.send(embed).then(msg => {
                 msg.delete({ timeout: 10000 })
-              })
-              .catch(console.error);
+            })
+                .catch(console.error);
         }
         let mode = null
         switch (args[0]) {
@@ -46,11 +46,11 @@ module.exports = {
         mode = mode ? mode === 2 ? "Loop Desativado" : "Loop Ativado" : "Off"
         embed.setAuthor('Mensagem de aviso')
         embed.setDescription(`Modo de repetição definido para \`${mode}\``)
-        embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
+        embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({ format: "png" }))
         embed.setColor('#851d86')
         message.channel.send(embed).then(msg => {
             msg.delete({ timeout: 10000 })
-          })
-          .catch(console.error);
+        })
+            .catch(console.error);
     }
 }

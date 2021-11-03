@@ -29,10 +29,6 @@ module.exports = {
         .catch(console.error);
     }
 
-    /*
-        message.channel.send(`${message.author.username} **acaba de beijar** ${user.username}! :heart:`, {files:[rand]});
-    */
-
     let avatar = message.author.displayAvatarURL({ format: "png" });
     const embed = new Discord.MessageEmbed()
       .setColor('#851d86')
@@ -59,15 +55,3 @@ module.exports = {
     })
   }
 }
-
-/*message.member.send({ embed }).then((embed) => {
-  [💞].forEach((emoji) => {
-    embed.react(emoji);
-  });
-  const collector = embed.creatrReactionCollector((reaction, user) =>
-  [💞].includes(reaction.emoji.name)
-  );
-  collector.on("collect", (reaction, user) => {
-    console.log(reaction.emoji.name);
-  });
-});*/

@@ -23,7 +23,7 @@ module.exports = {
                 })
                     .catch(console.error);
             }
-    
+
             //Check if the user is not banned
             try {
                 await message.guild.fetchBan(args[0])
@@ -37,7 +37,7 @@ module.exports = {
                 })
                     .catch(console.error);
             }
-    
+
             try {
                 message.guild.fetchBans().then(bans => {
                     message.guild.members.unban(member)

@@ -14,21 +14,21 @@ module.exports = {
             embed.setAuthor('Mensagem de erro')
             embed.setDescription('Você não está no mesmo canal de voz. Entre no mesmo canal de voz, ou aguarde sua vez.')
             embed.setColor('#cc0000')
-            embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
+            embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({ format: "png" }))
             return message.channel.send(embed).then(msg => {
                 msg.delete({ timeout: 5000 })
-              })
-              .catch(console.error);
+            })
+                .catch(console.error);
         }
-        
+
         embed.setAuthor('Mensagem de aviso')
         embed.setDescription("Autoplay `" + (mode ? "Ligado" : "Desligado") + "`")
-        embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({format: "png"}))
+        embed.setFooter(`requirido por • ${message.author.tag}`, message.author.displayAvatarURL({ format: "png" }))
         embed.setColor('#851d86')
         message.channel.send(embed).then(msg => {
             msg.delete({ timeout: 10000 })
-          })
-          .catch(console.error);
+        })
+            .catch(console.error);
 
     }
 }

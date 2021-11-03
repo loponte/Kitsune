@@ -20,7 +20,7 @@ module.exports = {
         const member = message.mentions.members.first()
 
         const subCommand = args.shift().toLowerCase();
-        
+
         if (!subCommand) {
             message.delete();
             let avatar = message.author.displayAvatarURL({
@@ -47,7 +47,7 @@ module.exports = {
                 })
                     .catch(console.error);
             }
-            
+
             if (!args[1]) {
                 let avatar = message.author.displayAvatarURL({ format: "png" });
                 const Embed = new Discord.MessageEmbed()
@@ -213,7 +213,7 @@ module.exports = {
                 })
                     .catch(console.error);
             }
-            
+
             const vip = await Vip.findOne({
                 user: member.user.id
             });
